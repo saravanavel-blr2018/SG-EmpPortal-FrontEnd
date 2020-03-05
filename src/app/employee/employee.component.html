@@ -1,0 +1,34 @@
+
+
+<div>
+<div>&nbsp;</div>
+  <p class="col-md-6">
+      <b class="font-color:red">Employee List</b>
+  </p>
+
+</div>
+
+<div class="col-md-6">
+  <table class="table table-striped">
+  <thead>
+  <tr>
+    <th class="headerClass">First Name</th>
+    <th class="headerClass">Last Name</th>
+    <th class="headerClass">Gender</th>
+    <th class="headerClass">DoB</th>
+    <th class="headerClass">Department</th>
+    </tr>
+  </thead>
+  <tbody>
+        <tr *ngFor="let employee of employees" class="rowClass">
+            <td>{{employee.fname}}</td>
+            <td>{{employee.lname}}</td>
+            <td>{{employee.gender}}</td>
+            <td>{{employee.dob}}</td>
+            <td>{{employee.department}}</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="employees.length === 0" style="padding:10px 10px;color: red;"> No data found!!!</div>

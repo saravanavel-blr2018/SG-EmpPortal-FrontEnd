@@ -1,0 +1,71 @@
+
+<div class="col-md-6">
+<div>&nbsp;</div>
+    <form>
+      <div class="int-box">
+        <label for="fname" class="labelClass">First Name : </label> 
+        <input type="name" [(ngModel)]="employee.fname" placeholder="First Name" name="fname" class="form-control" id="fname" required>
+      </div>
+    
+      <div>&nbsp;</div>
+      <div class="int-box">
+        <label for="lname" class="labelClass">Last Name :  </label>
+        <input [(ngModel)]="employee.lname" placeholder="Last Name" name="lname" class="form-control" id="lname" required>
+      </div>
+    
+    <div>&nbsp;</div>
+      <div class="int-box">
+        <label for="gender" class="labelClass">Gender</label>
+          <input [(ngModel)]="employee.gender" placeholder="Gender" name="gender" class="form-control" id="gender">
+      </div>
+    
+      
+    <!--<div>&nbsp;</div>
+    <div>
+      <mat-label class="labelClass">Gender</mat-label>
+      <div>&nbsp;</div>
+      <mat-form-field>        
+        <select matNativeControl required [(ngModel)]="employee.gender" name="gender">
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+      </mat-form-field>
+    </div>
+  -->
+  
+<!--
+      <div>
+        <mat-form-field class="example-full-width">
+        <mat-label class="labelClass">Choose DoB</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="employee.dob" name="dob">
+        <mat-datepicker-toggle matSuffix [for]="picker">
+          <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+        </mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      </div>-->
+    <!--<div>&nbsp;</div>
+      <div>
+        <mat-form-field>
+          <mat-label>Choose a date</mat-label>
+          <input matInput [matDatepicker]="dtpicker">
+          <mat-datepicker-toggle matSuffix [for]="dtpicker"></mat-datepicker-toggle>
+          <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+        </mat-form-field>
+      </div>-->
+      <div>&nbsp;</div>
+      <div class="int-box">
+        <label for="dob" class="labelClass">DoB</label>
+        <input [(ngModel)]="employee.dob" placeholder="YYYY-MM-DD" name="dob" class="form-control" id="dob">
+
+      </div>
+
+      <div>&nbsp;</div>
+      <div class="int-box">
+        <label for="department" class="labelClass">Department</label>
+        <input [(ngModel)]="employee.department" placeholder="Department" name="department" class="form-control" id="department">
+      </div>
+      <div>&nbsp;</div>
+      <button class="btn btn-success" (click)="createEmployee()">Create</button>
+    </form>
+    </div>
