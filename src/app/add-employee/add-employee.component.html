@@ -1,22 +1,25 @@
 
 <div class="col-md-6">
 <div>&nbsp;</div>
-    <form>
-      <div class="int-box">
-        <label for="fname" class="labelClass">First Name : </label> 
-        <input type="name" [(ngModel)]="employee.fname" placeholder="First Name" name="fname" class="form-control" id="fname" required>
+    <form #formController="ngForm" name="employeeForm" (ngSubmit)="createEmployee()">
+      <div class="int-box" [class.has-error]="fnamevalue.invalid">
+        <label for="fname" class="labelClass control-label">First Name : </label> 
+        <input type="name" [(ngModel)]="employee.fname" placeholder="First Name" name="fname" class="form-control" id="fname" required #fnamevalue="ngModel">
+        <span class="help-block" *ngIf="fnamevalue.invalid">First Name is required</span>
       </div>
     
       <div>&nbsp;</div>
-      <div class="int-box">
-        <label for="lname" class="labelClass">Last Name :  </label>
-        <input [(ngModel)]="employee.lname" placeholder="Last Name" name="lname" class="form-control" id="lname" required>
+      <div class="int-box" [class.has-error]="lnamevalue.invalid">
+        <label for="lname" class="labelClass control-label">Last Name :  </label>
+        <input [(ngModel)]="employee.lname" placeholder="Last Name" name="lname" class="form-control" id="lname" required #lnamevalue="ngModel">
+        <span class="help-block" *ngIf="lnamevalue.invalid">Last Name is required</span>
       </div>
     
     <div>&nbsp;</div>
-      <div class="int-box">
-        <label for="gender" class="labelClass">Gender</label>
-          <input [(ngModel)]="employee.gender" placeholder="Gender" name="gender" class="form-control" id="gender">
+      <div class="int-box" [class.has-error]="gendervalue.invalid">
+        <label for="gender" class="labelClass control-label">Gender</label>
+          <input [(ngModel)]="employee.gender" placeholder="Gender" name="gender" class="form-control" id="gender" required #gendervalue="ngModel">
+          <span class="help-block" *ngIf="gendervalue.invalid">Gender is required</span>
       </div>
     
       
@@ -66,6 +69,8 @@
         <input [(ngModel)]="employee.department" placeholder="Department" name="department" class="form-control" id="department">
       </div>
       <div>&nbsp;</div>
-      <button class="btn btn-success" (click)="createEmployee()">Create</button>
+      <!--<button class="btn btn-success" (click)="createEmployee()">Create</button>-->
+      <button type="submit" class="btn btn-success" [disabled]="!formController.form.valid">Register</button>
+      
     </form>
     </div>

@@ -1,9 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EmployeeComponent } from './employee.component';
+import { HttpclientService } from '../service/httpclient.service';
 
 describe('EmployeeComponent', () => {
   let component: EmployeeComponent;
+  let httpService: HttpclientService;
   let fixture: ComponentFixture<EmployeeComponent>;
 
   beforeEach(async(() => {
@@ -19,7 +21,12 @@ describe('EmployeeComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  /*it('should create', () => {
     expect(component).toBeTruthy();
+  });*/
+
+  xit('should get all employee list from H2 database',()=>{
+
   });
+
 });

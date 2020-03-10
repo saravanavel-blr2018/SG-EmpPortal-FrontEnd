@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpclientService,Employee } from '../service/httpclient.service';
+import { HttpclientService } from '../service/httpclient.service';
+import { Employee } from "../model/Employee";
 import {
   FormGroup,
   FormBuilder,
@@ -14,7 +15,7 @@ import {
 })
 export class AddEmployeeComponent implements OnInit {
 
-  employee: Employee = new Employee("","","","","");
+  employee: Employee = new Employee(0,"","","","","");
   //employee: Employee;
   //form: FormGroup;
 
@@ -23,31 +24,33 @@ export class AddEmployeeComponent implements OnInit {
     
   }
 
-    form = this.formBuilder.group({
+   /* form = this.formBuilder.group({
     fName: [''],
     lastName: [''],
     gender: [''],
     dob: [''],
     department: [''],
   
-  });
+  });*/
 
   ngOnInit() {
-    this.form = this.formBuilder.group({
+    /*this.form = this.formBuilder.group({
       fName: ['', Validators.required],
       lastName: [null, Validators.required],
       gender: [null, Validators.required],
       dob: [null, Validators.required],
       department: [null, Validators.required],
      
-    });
+    });*/
   }
 
 
   createEmployee(): void {
     this.httpClientService.createEmployee(this.employee)
         .subscribe( data => {
-          alert("Employee created successfully.");
+          alert("Employee is registered successfully.");
+          this.employee = new Employee(0,"","","","","");
+          //this.form.reset();
         });
 
   };

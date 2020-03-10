@@ -19,7 +19,7 @@
     <th class="headerClass">Department</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody *ngIf="employees?.length">
         <tr *ngFor="let employee of employees" class="rowClass">
             <td>{{employee.fname}}</td>
             <td>{{employee.lname}}</td>
@@ -27,8 +27,14 @@
             <td>{{employee.dob}}</td>
             <td>{{employee.department}}</td>
         </tr>
+        <tr *ngIf="!employees" style="padding:10px 10px;color: red;"> {{errorMsg}}</tr>
+        <!--<tr *ngIf="employees.length===0" style="padding:10px 10px;color: red;"> {{errorMsg}}</tr>-->
     </tbody>
   </table>
 </div>
 
-<div *ngIf="employees.length === 0" style="padding:10px 10px;color: red;"> No data found!!!</div>
+
+<div *ngIf="! employees?.length" style="padding:10px 10px;color: red;">
+  &nbsp;&nbsp;&nbsp;No data found...
+</div>
+<!--<div *ngIf="!employees" style="padding:10px 10px;color: red;"> {{errorMsg}}</div>-->
